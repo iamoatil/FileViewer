@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F45F07D-59BE-4F03-BBE7-405505BA9403}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <ProjectGuid>{FF45F77B-542C-4457-BC77-B2D4D25B20FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FileViewer</RootNamespace>
-    <AssemblyName>FileViewer</AssemblyName>
+    <RootNamespace>System.Windows</RootNamespace>
+    <AssemblyName>System.Windows</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -33,47 +33,29 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="XLY.SF.Framework.Language, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Ref\XLY.SF.Framework.Language.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Decoders\ExcelFileDecoder.cs" />
-    <Compile Include="Decoders\PptFileDecoder.cs" />
-    <Compile Include="Decoders\PdfFileDecoder.cs" />
-    <Compile Include="Decoders\WordFileDecoder.cs" />
-    <Compile Include="IdentifyEncoding.cs" />
-    <Compile Include="PathCollection.cs" />
-    <Compile Include="PreViewControl.xaml.cs">
-      <DependentUpon>PreViewControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\LargeFileTextBox\CacheBuffer.cs" />
-    <Compile Include="UserControls\LargeFileTextBox\CstEncoding.cs" />
-    <Compile Include="UserControls\LargeFileTextBox\LargeFile.cs" />
-    <Compile Include="UserControls\LargeFileTextBox\LargeFileTextBoxUserControl.xaml.cs">
-      <DependentUpon>LargeFileTextBoxUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\LargeFileTextBox\PresentBuffer.cs" />
-    <Compile Include="UserControls\PlayerControl\AudioUserControl.cs" />
-    <Compile Include="UserControls\PlayerControl\PlayerUserControl.xaml.cs">
-      <DependentUpon>PlayerUserControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\PlayerControl\VideoUserControl.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,31 +64,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Decoders\AudioFileDecoder.cs" />
-    <Compile Include="Decoders\BinaryFileDecoder.cs" />
-    <Compile Include="Decoders\HtmlFileDecoder.cs" />
-    <Compile Include="Decoders\IFileDecoder.cs" />
-    <Compile Include="Decoders\PictureFileDecoder.cs" />
-    <Compile Include="Decoders\TextFileDecoder.cs" />
-    <Compile Include="Decoders\VideoFileDecoder.cs" />
-    <Compile Include="FileDecode\FileDecoderCollection.cs" />
-    <Compile Include="FileDecode\SuffixToDecoderMap.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="PreViewControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\LargeFileTextBox\LargeFileTextBoxUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\PlayerControl\PlayerUserControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -134,34 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="说明.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PresentationFramework\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Ref\XLY.SF.Framework.Language.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Ref\XLY.SF.Framework.Language.pdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\System.Utility\System.Utility.csproj">
-      <Project>{425fc769-9426-440b-ba62-b6d89fabd5e8}</Project>
-      <Name>System.Utility</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TestHelper\Helper.csproj">
-      <Project>{87d036b6-410d-4d13-8c3f-dc81c43da496}</Project>
-      <Name>Helper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XLY.XDD.Control\XLY.XDD.Control.csproj">
-      <Project>{4422cbde-41db-4ac5-8855-568e3ffc9f64}</Project>
-      <Name>XLY.XDD.Control</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

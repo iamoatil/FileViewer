@@ -16,8 +16,8 @@ namespace FileViewer
             PreviousCommand = new RelayCommand(Previous);
 
             InitializeComponent();
-            
-            string dir = @"C:\Users\litao\Pictures\";
+
+            string dir = @"C:\Users\litao\Pictures\视频音频";
             if (!Directory.Exists(dir))
             {
                 dir = @"./";
