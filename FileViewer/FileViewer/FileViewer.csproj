@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -134,9 +134,7 @@
   <ItemGroup>
     <Resource Include="说明.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LargeFileLoad\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Ref\XLY.SF.Framework.Language.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
