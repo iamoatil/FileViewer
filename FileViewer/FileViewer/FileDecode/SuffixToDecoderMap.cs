@@ -16,12 +16,12 @@ namespace FileViewer.FileDecode
 
         public SuffixToFileDecoderMap(FileDecoderCollection manager)
         {       
-            MapPathToFile(".mp3", manager.AudioFile);
+            MapPathToFile(".mp3|.wma|.ape|.flac|.aac|.ac3|.mmf|.amr|.m4a|.m4r|.ogg|.wav|.mp2", manager.AudioFile);
             MapPathToFile(".bin", manager.BinaryFile);
             MapPathToFile(".html|.Xml", manager.HtmlFile);
-            MapPathToFile(".jpg", manager.PictureFile);
+            MapPathToFile(".jpg|.png|.ico|.bmp|.tif|.tga|.gif", manager.PictureFile);
             MapPathToFile(".txt|.ini", manager.TextFile);
-            MapPathToFile(".avi|.rmvb|.mp4", manager.VideoFile);
+            MapPathToFile(".avi|.rmvb|.rm|.mp4|.mkv|.webM|.3gp|.WMV|.MPG|.vob|.mov|.flv|.swf", manager.VideoFile);
         }
 
         private void MapPathToFile(string suffixExp,IFileDecoder file)
@@ -29,7 +29,8 @@ namespace FileViewer.FileDecode
             string[] suffixes = suffixExp.Split('|');
             foreach (var suffix in suffixes)
             {
-                _suffixToDecoderDic.Add(suffix,file);
+                string lowerSuffix = suffix.ToLower();
+                _suffixToDecoderDic.Add(lowerSuffix, file);
             }
         }
 
@@ -39,7 +40,8 @@ namespace FileViewer.FileDecode
         /// <returns></returns>
         public IFileDecoder GetDecoder(string suffix)
         {
-            if (_suffixToDecoderDic.ContainsKey(suffix))
+            string lowerSuffix = suffix.ToLower();
+            if (_suffixToDecoderDic.ContainsKey(lowerSuffix))
             {
                 return _suffixToDecoderDic[suffix];
             }

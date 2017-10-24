@@ -19,7 +19,14 @@ namespace FileViewer.Decoders
 
         public void Decode(string path)
         {
-            _image.Source = new BitmapImage(new Uri(path));
+            try
+            {
+                _image.Source = new BitmapImage(new Uri(path));
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Can not Open " + path);
+            }
         }
     }
 }
