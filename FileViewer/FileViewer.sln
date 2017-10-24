@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileViewer", "FileViewer\FileViewer.csproj", "{6F45F07D-59BE-4F03-BBE7-405505BA9403}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helper", "TestHelper\Helper.csproj", "{87D036B6-410D-4D13-8C3F-DC81C43DA496}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F45F07D-59BE-4F03-BBE7-405505BA9403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F45F07D-59BE-4F03-BBE7-405505BA9403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F45F07D-59BE-4F03-BBE7-405505BA9403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F45F07D-59BE-4F03-BBE7-405505BA9403}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87D036B6-410D-4D13-8C3F-DC81C43DA496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87D036B6-410D-4D13-8C3F-DC81C43DA496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87D036B6-410D-4D13-8C3F-DC81C43DA496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87D036B6-410D-4D13-8C3F-DC81C43DA496}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

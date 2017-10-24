@@ -1,0 +1,19 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fileViewer="clr-namespace:FileViewer"
+        x:Class="FileViewer.MainWindow"
+        Title="MainWindow" Height="350" Width="525"
+    DataContext="{Binding RelativeSource={RelativeSource Self},Path=.}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="277*"/>
+            <RowDefinition Height="42*"/>
+        </Grid.RowDefinitions>
+
+        <fileViewer:PreViewControl x:Name="PreviewControl"/>
+        <Button Content="《《" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top" Width="75" Grid.Row="1" Command="{Binding PreviousCommand}"/>
+        <Button Content="》》" HorizontalAlignment="Right" Margin="0,10,40,0" VerticalAlignment="Top" Grid.Row="1" Command="{Binding NextCommand}" Width="75" />
+
+    </Grid>
+</Window>
