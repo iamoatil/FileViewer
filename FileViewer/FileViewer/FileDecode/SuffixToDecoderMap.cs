@@ -22,6 +22,10 @@ namespace FileViewer.FileDecode
             MapPathToFile(".jpg|.png|.ico|.bmp|.tif|.tga|.gif", manager.PictureFile);
             MapPathToFile(".txt|.ini", manager.TextFile);
             MapPathToFile(".avi|.rmvb|.rm|.mp4|.mkv|.webM|.3gp|.WMV|.MPG|.vob|.mov|.flv|.swf", manager.VideoFile);
+            MapPathToFile(".doc|.docx", manager.WordFile);
+            MapPathToFile(".xls|.xlsx", manager.ExcelFile);
+            MapPathToFile(".ppt|.pptx", manager.PptFile);
+            MapPathToFile(".pdf", manager.PdfFile);
         }
 
         private void MapPathToFile(string suffixExp,IFileDecoder file)

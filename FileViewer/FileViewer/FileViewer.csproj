@@ -53,6 +53,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Decoders\ExcelFileDecoder.cs" />
+    <Compile Include="Decoders\PptFileDecoder.cs" />
+    <Compile Include="Decoders\PdfFileDecoder.cs" />
+    <Compile Include="Decoders\WordFileDecoder.cs" />
     <Compile Include="IdentifyEncoding.cs" />
     <Compile Include="PathCollection.cs" />
     <Compile Include="PreViewControl.xaml.cs">
@@ -144,9 +148,17 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\System.Utility\System.Utility.csproj">
+      <Project>{425fc769-9426-440b-ba62-b6d89fabd5e8}</Project>
+      <Name>System.Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TestHelper\Helper.csproj">
       <Project>{87d036b6-410d-4d13-8c3f-dc81c43da496}</Project>
       <Name>Helper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XLY.XDD.Control\XLY.XDD.Control.csproj">
+      <Project>{4422cbde-41db-4ac5-8855-568e3ffc9f64}</Project>
+      <Name>XLY.XDD.Control</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

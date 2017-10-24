@@ -40,8 +40,28 @@ namespace FileViewer.FileDecode
         /// </summary>
         public IFileDecoder VideoFile { get; private set; }
 
+        /// <summary>
+        /// Word文件解码器
+        /// </summary>
+        public IFileDecoder WordFile { get; private set; }
+
+        /// <summary>
+        /// Excel文件解码器
+        /// </summary>
+        public IFileDecoder ExcelFile { get; private set; }
+
+        /// <summary>
+        /// PPT文件解码器
+        /// </summary>
+        public IFileDecoder PptFile { get; private set; }
+
+        /// <summary>
+        /// pdf文件解码器
+        /// </summary>
+        public IFileDecoder PdfFile { get; private set; }
+        
         //后缀与文件解码器的关系
-        private SuffixToFileDecoderMap _suffixToFileMap;
+        private readonly SuffixToFileDecoderMap _suffixToFileMap;
 
         public FileDecoderCollection()
         {
@@ -52,6 +72,10 @@ namespace FileViewer.FileDecode
             PictureFile = new PictureFileDecoder();
             TextFile = new TextFileDecoder();
             VideoFile = new VideoFileDecoder();
+            WordFile = new WordFileDecoder();
+            ExcelFile = new ExcelFileDecoder();
+            PptFile = new PptFileDecoder();
+            PdfFile=new PdfFileDecoder();
 
             //建立后缀与文件解码器的关系，根据映射关系某一后缀就能被某种文件解码器默认打开。eg：.txt -->被TextFileEncoder打开
             _suffixToFileMap = new SuffixToFileDecoderMap(this);
