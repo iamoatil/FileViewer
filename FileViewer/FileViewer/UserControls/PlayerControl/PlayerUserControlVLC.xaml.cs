@@ -9,39 +9,40 @@ namespace FileViewer.UserControls.PlayerControl
     /// <summary>
     /// AudioUserControl.xaml 的交互逻辑
     /// </summary>
-    public partial class PlayerUserControl : UserControl
+    public partial class PlayerUserControlVLC : UserControl
     {
-        public PlayerUserControl()
+        public PlayerUserControlVLC()
         {
             InitializeComponent();
             TimeSlider.LargeChange = 0.1;
             this.VerticalAlignment =VerticalAlignment.Center;            
         }
-        private MediaElement _mediaElement;
+        private XLY.XDD.Control.MediaElement _mediaElement;
 
         /// <summary>
         /// 更新界面进度条的
         /// </summary>
-        readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer(); 
+        readonly DispatcherTimer _dispatcherTimer = new DispatcherTimer();
 
-        public void SetMediaElement(MediaElement mediaElement)
+        public void SetMediaElement(XLY.XDD.Control.MediaElement mediaElement)
         {
             _mediaElement = mediaElement;
             _mediaElement.Volume = 1;
-            MediaElementContainer.Children.Clear();
+
             MediaElementContainer.Children.Add(_mediaElement);
-
-            _mediaElement.LoadedBehavior = MediaState.Manual;
-            _mediaElement.MediaOpened += MediaElement_MediaOpened;
-
-            Title.Text = Path.GetFileName(_mediaElement.Source.ToString());
+            _mediaElement.Opened += MediaElement_MediaOpened;
         }        
 
         private void MediaElement_MediaOpened(object sender, RoutedEventArgs e)
         {
-            TimeSlider.Maximum = _mediaElement.NaturalDuration.TimeSpan.TotalSeconds;
-            TotalTime.Text = _mediaElement.NaturalDuration.TimeSpan.ToString("hh':'mm':'ss");           
-           
+            if (this._mediaElement.Length.HasValue)
+            {
+                this.TimeSlider.Maximum = this._mediaElement.Length.Value.TotalMilliseconds;
+                TotalTime.Text = this._mediaElement.Length.Value.ToString("hh':'mm':'ss"); 
+            }
+
+            Title.Text = Path.GetFileName(_mediaElement.Source.ToString());
+
             _dispatcherTimer.Tick += UpdateSliderValueByTimer;
             _dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 500);
             _dispatcherTimer.Start();
@@ -49,8 +50,11 @@ namespace FileViewer.UserControls.PlayerControl
 
         private void UpdateSliderValueByTimer(object sender, EventArgs e)
         {
-            TimeSlider.Value = _mediaElement.Position.TotalSeconds;
-            StartTime.Text = _mediaElement.Position.ToString("hh':'mm':'ss");
+            if (this._mediaElement.Position.HasValue)
+            {
+                TimeSlider.Value = this._mediaElement.Position.Value.TotalSeconds;
+                StartTime.Text = _mediaElement.Position.Value.ToString("hh':'mm':'ss");
+            }
         }
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

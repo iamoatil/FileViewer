@@ -1,13 +1,17 @@
 ﻿using System;
 using System.IO;
 using System.Windows;
-using System.Windows.Controls;
 using FileViewer.UserControls.PlayerControl;
 
 namespace FileViewer.Decoders
 {
     class AudioFileDecoder :IFileDecoder
     {
+        public AudioFileDecoder()
+        {
+            _audioUserControl.SetMediaElement(_mediaElement);
+        }
+
         public  FrameworkElement Element
         {
             get
@@ -16,14 +20,13 @@ namespace FileViewer.Decoders
             }
         }
 
-        readonly AudioUserControl _audioUserControl = new AudioUserControl();
-        readonly MediaElement _mediaElement = new MediaElement();        
+        readonly PlayerUserControlVLC _audioUserControl = new PlayerUserControlVLC();
+        readonly XLY.XDD.Control.MediaElement _mediaElement = new XLY.XDD.Control.MediaElement();        
 
         public void Decode(string path)
         {
             path=Path.GetFullPath(path);
-            _mediaElement.Source = new Uri(path);
-            _audioUserControl.SetMediaElement(_mediaElement);           
+            _mediaElement.Open(path);
         }        
     }
 }

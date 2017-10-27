@@ -70,6 +70,9 @@
     </Compile>
     <Compile Include="UserControls\LargeFileTextBox\PresentBuffer.cs" />
     <Compile Include="UserControls\PlayerControl\AudioUserControl.cs" />
+    <Compile Include="UserControls\PlayerControl\PlayerUserControlVLC.xaml.cs">
+      <DependentUpon>PlayerUserControlVLC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\PlayerControl\PlayerUserControl.xaml.cs">
       <DependentUpon>PlayerUserControl.xaml</DependentUpon>
     </Compile>
@@ -100,6 +103,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\LargeFileTextBox\LargeFileTextBoxUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\PlayerControl\PlayerUserControlVLC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,9 +145,7 @@
   <ItemGroup>
     <Resource Include="说明.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PresentationFramework\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Ref\XLY.SF.Framework.Language.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

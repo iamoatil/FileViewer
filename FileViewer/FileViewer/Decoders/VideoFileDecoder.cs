@@ -8,22 +8,26 @@ namespace FileViewer.Decoders
 {
     class VideoFileDecoder : IFileDecoder
     {
+        public VideoFileDecoder()
+        {
+            _videoUserControl.SetMediaElement(_mediaElement);
+        }
+
         public FrameworkElement Element
         {
             get
             {
-                return _audioUserControl;
+                return _videoUserControl;
             }
         }
 
-        readonly VideoUserControl _audioUserControl = new VideoUserControl();
-        readonly MediaElement _mediaElement = new MediaElement();
+        readonly PlayerUserControlVLC _videoUserControl = new PlayerUserControlVLC();
+        readonly XLY.XDD.Control.MediaElement _mediaElement = new XLY.XDD.Control.MediaElement();
 
         public void Decode(string path)
         {
             path = Path.GetFullPath(path);
-            _mediaElement.Source = new Uri(path);
-            _audioUserControl.SetMediaElement(_mediaElement);
+            _mediaElement.Open(path);
         }
     }
 }

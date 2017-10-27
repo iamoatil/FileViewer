@@ -17,7 +17,7 @@ namespace FileViewer
 
             InitializeComponent();
 
-            string dir = @"C:\Users\litao\Pictures\视频音频";
+            string dir = @"C:\Test\Pictures\视频音频";
             if (!Directory.Exists(dir))
             {
                 dir = @"./";
